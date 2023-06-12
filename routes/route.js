@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const controller = require("../controller/Controller.js");
-router.post("/");
+router.post("/add_actor", controller.add_actor);
+router.post("/add_movie", controller.add_Movie);
+router.post("/add_genre", controller.add_Genre);
+router.post("/add_director", controller.add_Director);
 router.get("/", controller.movie_all);
 router.get("/:productId");
 router.put("/:productId");

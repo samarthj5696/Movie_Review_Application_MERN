@@ -14,7 +14,6 @@ mongoose.connect(
 
 const movieRoutes = require("./routes/route.js");
 
-//
 app.use(express.json());
 app.use(cors());
 
