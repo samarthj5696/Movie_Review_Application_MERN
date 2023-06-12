@@ -6,6 +6,7 @@ const MovieSchema = new mongoose.Schema({
   Rating: Number,
   Release_Date: Date,
   Actor: Array,
+  Role: Array,
   Director: Array,
 });
 module.exports = mongoose.model("Movie", MovieSchema);

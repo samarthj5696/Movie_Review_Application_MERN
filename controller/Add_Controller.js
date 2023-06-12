@@ -1,10 +1,10 @@
 const Actor = require("../model/Actor.js");
 const Director = require("../model/Director.js");
 const Genre = require("../model/Genre.js");
-const Movies = require("../model/Movie.js");
 const Movie = require("../model/Movie.js");
 const User = require("../model/User.js");
 
+//get("/")
 //Get all movies
 const movie_all = async (req, res) => {
   try {
@@ -15,6 +15,7 @@ const movie_all = async (req, res) => {
   }
 };
 
+//post("/add_director")
 //Add Director
 const add_Director = async (req, res) => {
   const director = new Director({
@@ -22,6 +23,7 @@ const add_Director = async (req, res) => {
     Last_Name: req.body.Last_Name,
     Movies: req.body.Movies,
   });
+
   try {
     const saveProduct = await director.save();
     res.send(saveProduct);
@@ -30,6 +32,7 @@ const add_Director = async (req, res) => {
   }
 };
 
+//post("add_genre")
 //Add Genre
 const add_Genre = async (req, res) => {
   const genre = new Genre({
@@ -44,25 +47,7 @@ const add_Genre = async (req, res) => {
   }
 };
 
-//Add Movie
-const add_Movie = async (req, res) => {
-  const movie = new Movie({
-    Movie_Name: req.body.Movie_Name,
-    IMDB_ID: req.body.IMDB_ID,
-    Comments: req.body.Comments,
-    Rating: req.body.Rating,
-    Release_Date: req.body.Release_Date,
-    Actor: req.body.Actor,
-    Director: req.body.Director,
-  });
-  try {
-    const saveProduct = await movie.save();
-    res.send(saveProduct);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-};
-
+//post("add_actor")
 //Add Actor
 const add_actor = async (req, res) => {
   const actor = new Actor({
@@ -79,4 +64,7 @@ const add_actor = async (req, res) => {
   }
 };
 
-module.exports = { movie_all, add_actor, add_Director, add_Genre, add_Movie };
+//Add_movie
+// const add_movie = require("./Add_movie.js");
+
+module.exports = { movie_all, add_actor, add_Director, add_Genre };
