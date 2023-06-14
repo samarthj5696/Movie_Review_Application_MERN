@@ -13,10 +13,10 @@ router.post("/add_genre", controller.add_Genre);
 router.post("/add_director", controller.add_Director);
 
 //Delete
-router.delete("/:id", delete_controller.delete_movie);
-router.delete("/:id", delete_controller.delete_actor);
-router.delete("/:id", delete_controller.delete_director);
-router.delete("/:id", delete_controller.delete_genre);
+router.delete("//movie/:id", delete_controller.delete_movie);
+router.delete("/actor/:id", delete_controller.delete_actor);
+router.delete("/director/:id", delete_controller.delete_director);
+router.delete("/genre/:id", delete_controller.delete_genre);
 
 //Update
 // router.get("/:productId");

@@ -64,6 +64,8 @@ const add_actor = async (req, res) => {
   }
 };
 
+//Add comment
+
 //Add_movie
 // const add_movie = require("./Add_movie.js");
 

@@ -8,5 +8,6 @@ const MovieSchema = new mongoose.Schema({
   Actor: Array,
   Role: Array,
   Director: Array,
+  Genre: Array,
 });
 module.exports = mongoose.model("Movie", MovieSchema);
