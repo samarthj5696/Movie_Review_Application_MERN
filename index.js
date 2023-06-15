@@ -23,6 +23,7 @@ app.use(cors());
 app.use("/api/movies", movieRoutes);
 
 //Port details
-app.listen(7000, () => {
-  console.log("App is running");
+const PORT = 7000;
+app.listen(PORT, () => {
+  console.log(`App is running on port: ${PORT}`);
 });
