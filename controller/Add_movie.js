@@ -12,9 +12,7 @@ const add_movie = async (req, res) => {
     IMDB_ID: req.body.IMDB_ID,
     Comments: req.body.Comments,
     Rating: req.body.Rating,
-    Release_Date: req.body.Release_Date,
     Actor: req.body.Actor,
-    Role: req.body.Role,
     Director: req.body.Director,
   });
   const actorId = req.body.Actor;

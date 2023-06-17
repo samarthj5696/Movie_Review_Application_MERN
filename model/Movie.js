@@ -4,9 +4,7 @@ const MovieSchema = new mongoose.Schema({
   IMDB_ID: String,
   Comments: Array,
   Rating: Number,
-  Release_Date: Date,
   Actor: Array,
-  Role: Array,
   Director: Array,
   Genre: Array,
 });

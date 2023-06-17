@@ -15,13 +15,45 @@ const movie_all = async (req, res) => {
   }
 };
 
+//get("/get_actor")
+//Get all actor information
+const get_actor = async (req, res) => {
+  try {
+    const actor = await Actor.find();
+    res.json(actor);
+  } catch (e) {
+    res.json({ message: e });
+  }
+};
+
+//get("/get_director")
+//Get all actor information
+const get_director = async (req, res) => {
+  try {
+    const director = await Director.find();
+    res.json(director);
+  } catch (e) {
+    res.json({ message: e });
+  }
+};
+
+//get("/get_genre")
+//get all genre
+const get_genre = async (req, res) => {
+  try {
+    const genre = await Genre.find();
+    res.json(genre);
+  } catch (e) {
+    res.json({ message: e });
+  }
+};
+
 //post("/add_director")
 //Add Director
 const add_Director = async (req, res) => {
   const director = new Director({
     First_Name: req.body.First_Name,
     Last_Name: req.body.Last_Name,
-    Movies: req.body.Movies,
   });
 
   try {
@@ -53,8 +85,6 @@ const add_actor = async (req, res) => {
   const actor = new Actor({
     First_Name: req.body.First_Name,
     Last_Name: req.body.Last_Name,
-    Movies: req.body.Movies,
-    Role: req.body.Role,
   });
   try {
     const saveProduct = await actor.save();
@@ -69,4 +99,12 @@ const add_actor = async (req, res) => {
 //Add_movie
 // const add_movie = require("./Add_movie.js");
 
-module.exports = { movie_all, add_actor, add_Director, add_Genre };
+module.exports = {
+  movie_all,
+  add_actor,
+  add_Director,
+  add_Genre,
+  get_actor,
+  get_genre,
+  get_director,
+};
