@@ -9,6 +9,7 @@ const User = require("../model/User.js");
 const movie_all = async (req, res) => {
   try {
     const movies = await Movie.find();
+    console.log("get all movies");
     res.json(movies);
   } catch (error) {
     res.json({ message: error });

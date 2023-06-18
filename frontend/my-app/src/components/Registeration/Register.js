@@ -40,7 +40,7 @@ function Register() {
           />
         </label>
         <label>
-          username:
+          password:
           <input
             type="text"
             value={password}

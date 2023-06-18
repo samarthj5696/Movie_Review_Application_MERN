@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import api from "../../axios/AxiosConfig.js";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = React.useState("");
@@ -31,7 +32,7 @@ function Login() {
           />
         </label>
         <label>
-          username:
+          password:
           <input
             type="text"
             value={password}
@@ -40,6 +41,9 @@ function Login() {
         </label>
         <input type="submit" />
       </form>
+      <div>
+        Register as new user :<Link to="/Register">Register</Link>
+      </div>
     </div>
   );
 }

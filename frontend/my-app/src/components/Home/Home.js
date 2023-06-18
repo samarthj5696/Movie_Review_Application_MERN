@@ -1,21 +1,19 @@
-import axios from "axios";
+import { Link } from "react-router-dom";
 import api from "../../axios/AxiosConfig.js";
-// import { useState } from "react";
-
 import { useEffect, useState } from "react";
 
 function Home() {
   const [getMovies, setMovies] = useState("");
-  const fun = async () => {
+  async function fun() {
     console.log("Home");
     try {
-      const response = await api.get("/api/movies/");
-      console.log(response);
+      const response = await api.get("/api/movies/get_movies");
       setMovies(response);
+      console.log(getMovies);
     } catch (err) {
       console.error(err);
     }
-  };
+  }
 
   useEffect(() => {
     fun();
@@ -23,22 +21,34 @@ function Home() {
 
   return (
     <div>
+      <li>
+        <Link to="/Add_Movie">Add_Movie</Link>
+      </li>
+      <li>
+        <Link to="/Add_Actor">Add_Actor</Link>
+      </li>
+      <li>
+        <Link to="/Add_Director">Add_Director</Link>
+      </li>
+      <li>
+        <Link to="/Add_Genre">Add_Genre</Link>
+      </li>
       <h1>Home</h1>
       <div>
-        {getMovies.data?.map((object) => (
+        {getMovies?.data?.map((object) => (
           <div>
             <h2>Movie :</h2>
             <div>{object.Movie_Name}:</div>
             <div>{object._id}</div>
             <div>
               <h4>Cast:</h4>
-              {object.Role.map((role) => (
+              {object.Actor?.map((role) => (
                 <div>{role}</div>
               ))}
             </div>
             <div>
               <h4>Director</h4>
-              {object.Director.map((director) => (
+              {object.Director?.map((director) => (
                 <div>{director}</div>
               ))}
             </div>

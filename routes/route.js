@@ -7,10 +7,10 @@ const validateToken = require("../errorHandling/TokenHandler.js");
 
 // router.use(validateToken);
 //Get
-router.get("/", validateToken, controller.movie_all);
-router.get("/get_actor", controller.get_actor);
-router.get("/get_director", controller.get_director);
-router.get("/get_genre", controller.get_genre);
+router.get("/get_movies", validateToken, controller.movie_all);
+router.get("/get_actor", validateToken, controller.get_actor);
+router.get("/get_director", validateToken, controller.get_director);
+router.get("/get_genre", validateToken, controller.get_genre);
 
 //Add
 router.post("/add_actor", validateToken, controller.add_actor);

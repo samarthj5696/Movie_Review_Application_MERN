@@ -12,12 +12,6 @@ const Header = () => {
           <li>
             <Link to="/Login">Login</Link>
           </li>
-          <li>
-            <Link to="/Register">Register</Link>
-          </li>
-          <li>
-            <Link to="/Add_Movie">Add_Movie</Link>
-          </li>
         </ul>
       </nav>
     </Navbar>

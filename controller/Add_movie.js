@@ -1,8 +1,4 @@
-const Actor = require("../model/Actor.js");
-const Director = require("../model/Director.js");
-const Genre = require("../model/Genre.js");
 const Movie = require("../model/Movie.js");
-const User = require("../model/User.js");
 
 //post("add_movie")
 //Add Movie
@@ -14,28 +10,12 @@ const add_movie = async (req, res) => {
     Rating: req.body.Rating,
     Actor: req.body.Actor,
     Director: req.body.Director,
+    Genre: req.body.Genre,
   });
-  const actorId = req.body.Actor;
-  const directorId = req.body.Director;
 
   try {
     const saveProduct = await movie.save();
-
-    for (let i = 0; i < actorId.length; i++) {
-      console.log(actorId[i]);
-      const actor = await Actor.updateOne(
-        { _id: actorId[i] },
-        { $push: { Movies: saveProduct._id } }
-      );
-    }
-
-    for (let i = 0; i < directorId.length; i++) {
-      console.log(directorId[i]);
-      const director = await Director.updateOne(
-        { _id: directorId[i] },
-        { $push: { Movies: saveProduct._id } }
-      );
-    }
+    console.log("saveProduct", saveProduct);
     res.send(saveProduct);
   } catch (error) {
     res.status(400).send(error);
