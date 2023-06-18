@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../../../axios/AxiosConfig.js";
 import Select from "react-select";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function Add_Actor() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
@@ -21,6 +22,9 @@ function Add_Actor() {
 
   return (
     <div>
+      <div>
+        <Link to="/Add_Movie">Back</Link>
+      </div>
       <form onSubmit={handleSubmit}>
         <label>
           First Name:

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../../../axios/AxiosConfig.js";
 import Select from "react-select";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function Add_Genre() {
   const [Genre, setGenre] = useState("");
 
@@ -19,6 +20,9 @@ function Add_Genre() {
 
   return (
     <div>
+      <div>
+        <Link to="/Add_Movie">Back</Link>
+      </div>
       <form onSubmit={handleSubmit}>
         <label>
           Genre:

@@ -21,18 +21,9 @@ function Home() {
 
   return (
     <div>
-      <li>
+      <div>
         <Link to="/Add_Movie">Add_Movie</Link>
-      </li>
-      <li>
-        <Link to="/Add_Actor">Add_Actor</Link>
-      </li>
-      <li>
-        <Link to="/Add_Director">Add_Director</Link>
-      </li>
-      <li>
-        <Link to="/Add_Genre">Add_Genre</Link>
-      </li>
+      </div>
       <h1>Home</h1>
       <div>
         {getMovies?.data?.map((object) => (

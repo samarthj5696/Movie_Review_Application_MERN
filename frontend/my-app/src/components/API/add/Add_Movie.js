@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../../../axios/AxiosConfig.js";
 import Select from "react-select";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Register() {
   const [movie_name, setMovie] = React.useState("");
@@ -116,12 +117,22 @@ function Register() {
   }
   return (
     <div>
+      <div>
+        <Link to="/Add_Actor">Add_Actor</Link>
+      </div>
+      <div>
+        <Link to="/Add_Director">Add_Director</Link>
+      </div>
+      <div>
+        <Link to="/Add_Genre">Add_Genre</Link>
+      </div>
+      <br></br>
       <form onSubmit={handleSubmit}>
         <label>
           Movie_name:
           <input
             type="text"
-            value={movie_name}
+            value={Array.isArray(movie_name) ? movie_name : []}
             onChange={(e) => setMovie(e.target.value)}
           />
         </label>
@@ -134,9 +145,10 @@ function Register() {
           />
         </label>
         <div>
+          <br></br>
           Actor:
           <Select
-            options={actor}
+            options={Array.isArray(actor) ? actor : []}
             placeholder="Select color"
             value={selectedOptionsActor}
             onChange={handleSelectActor}
@@ -144,10 +156,11 @@ function Register() {
             isMulti
           />
         </div>
+        <br></br>
         <div>
           Director:
           <Select
-            options={director}
+            options={Array.isArray(director) ? director : []}
             placeholder="Select color"
             value={selectedOptionsDirector}
             onChange={handleSelectDirector}
@@ -155,10 +168,11 @@ function Register() {
             isMulti
           />
         </div>
+        <br></br>
         <div>
           Genre:
           <Select
-            options={genre}
+            options={Array.isArray(genre) ? genre : []}
             placeholder="Select color"
             value={selectedOptionsGenre}
             onChange={handleSelectGenre}
@@ -166,6 +180,7 @@ function Register() {
             isMulti
           />
         </div>
+        <br></br>
         <input type="submit" />
       </form>
     </div>

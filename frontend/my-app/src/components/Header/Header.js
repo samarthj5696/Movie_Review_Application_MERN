@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <Navbar>
+      <br></br>
       <nav>
-        <ul>
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-          <li>
-            <Link to="/Login">Login</Link>
-          </li>
-        </ul>
+        <div>
+          <Link to="/Home">Home</Link>
+        </div>
+        <div>
+          <Link to="/Login">Login</Link>
+        </div>
       </nav>
+      <br></br>
     </Navbar>
   );
 };
