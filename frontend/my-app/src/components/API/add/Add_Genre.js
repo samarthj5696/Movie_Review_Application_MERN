@@ -3,15 +3,19 @@ import api from "../../../axios/AxiosConfig.js";
 import Select from "react-select";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-function Add_Genre() {
+function Add_Genre(prop) {
   const [Genre, setGenre] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await api.post("/api/movies/add_genre", {
-        Type: Genre,
-      });
+      const response = await api.post(
+        "/api/movies/add_genre",
+        {
+          Type: Genre,
+        },
+        { headers: { Authorization: `Bearer ${prop.Token}` } }
+      );
       console.log(response);
     } catch (err) {
       console.error(err);

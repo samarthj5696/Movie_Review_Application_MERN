@@ -1,6 +1,6 @@
 import "./App.css";
 import AxiosConfig from "./axios/AxiosConfig.js";
-import React from "react";
+import React, { useState } from "react";
 // import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
@@ -13,19 +13,23 @@ import Add_Director from "./components/API/add/Add_Director.js";
 import Add_Actor from "./components/API/add/Add_Actor.js";
 import Add_Genre from "./components/API/add/Add_Genre.js";
 function App() {
+  const [Token, setToken] = useState("");
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="Login" element={<Login />} />
+            <Route path="Login" element={<Login setToken={setToken} />} />
             <Route path="Register" element={<Register />} />
-            <Route path="Home" element={<Home />} />
-            <Route path="Add_Movie" element={<Add_Movie />} />
-            <Route path="Add_Director" element={<Add_Director />} />
-            <Route path="Add_Actor" element={<Add_Actor />} />
-            <Route path="Add_Genre" element={<Add_Genre />} />
+            <Route path="Home" element={<Home Token={Token} />} />
+            <Route path="Add_Movie" element={<Add_Movie Token={Token} />} />
+            <Route
+              path="Add_Director"
+              element={<Add_Director Token={Token} />}
+            />
+            <Route path="Add_Actor" element={<Add_Actor Token={Token} />} />
+            <Route path="Add_Genre" element={<Add_Genre Token={Token} />} />
           </Route>
         </Routes>
       </BrowserRouter>

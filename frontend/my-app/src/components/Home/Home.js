@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import api from "../../axios/AxiosConfig.js";
 import { useEffect, useState } from "react";
 
-function Home() {
+function Home(prop) {
   const [getMovies, setMovies] = useState("");
   async function fun() {
     console.log("Home");
+    console.log(prop.Token);
     try {
-      const response = await api.get("/api/movies/get_movies");
+      const response = await api.get("/api/movies/get_movies", {
+        headers: { Authorization: `Bearer ${prop.Token}` },
+      });
       setMovies(response);
       console.log(getMovies);
     } catch (err) {

@@ -3,17 +3,21 @@ import api from "../../../axios/AxiosConfig.js";
 import Select from "react-select";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-function Add_Director() {
+function Add_Director(prop) {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await api.post("/api/movies/add_director", {
-        First_Name: FirstName,
-        Last_Name: LastName,
-      });
+      const response = await api.post(
+        "/api/movies/add_director",
+        {
+          First_Name: FirstName,
+          Last_Name: LastName,
+        },
+        { headers: { Authorization: `Bearer ${prop.Token}` } }
+      );
       console.log(response);
     } catch (err) {
       console.error(err);

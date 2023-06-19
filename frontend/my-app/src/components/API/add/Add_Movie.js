@@ -4,7 +4,7 @@ import Select from "react-select";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Register() {
+function Register(prop) {
   const [movie_name, setMovie] = React.useState("");
   const [IMDB_ID, setIMDB_ID] = React.useState("");
 
@@ -18,9 +18,15 @@ function Register() {
 
   async function GetInfo() {
     try {
-      const responseActor = await api.get("api/movies/get_actor");
-      const responseDirector = await api.get("api/movies/get_director");
-      const responseGenre = await api.get("api/movies/get_genre");
+      const responseActor = await api.get("api/movies/get_actor", {
+        headers: { Authorization: `Bearer ${prop.Token}` },
+      });
+      const responseDirector = await api.get("api/movies/get_director", {
+        headers: { Authorization: `Bearer ${prop.Token}` },
+      });
+      const responseGenre = await api.get("api/movies/get_genre", {
+        headers: { Authorization: `Bearer ${prop.Token}` },
+      });
 
       const dActor = responseActor.data;
       let tactor = [];
@@ -73,6 +79,7 @@ function Register() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(prop.Token);
     try {
       const selectedActor = [];
       for (let i = 0; i < selectedOptionsActor.length; i++) {
@@ -90,15 +97,19 @@ function Register() {
       }
       console.log("selectedOptionsGenre: ", selectedGenre);
 
-      const response = await api.post("/api/movies/add_movie", {
-        Movie_Name: movie_name,
-        IMDB_ID: IMDB_ID,
-        Comments: [],
-        Rating: 0,
-        Actor: selectedActor,
-        Director: selectedDirector,
-        Genre: selectedGenre,
-      });
+      const response = await api.post(
+        "/api/movies/add_movie",
+        {
+          Movie_Name: movie_name,
+          IMDB_ID: IMDB_ID,
+          Comments: [],
+          Rating: 0,
+          Actor: selectedActor,
+          Director: selectedDirector,
+          Genre: selectedGenre,
+        },
+        { headers: { Authorization: `Bearer ${prop.Token}` } }
+      );
       console.log(response);
     } catch (err) {
       console.error(err);

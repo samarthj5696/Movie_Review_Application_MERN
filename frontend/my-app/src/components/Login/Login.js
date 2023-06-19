@@ -3,7 +3,7 @@ import axios from "axios";
 import api from "../../axios/AxiosConfig.js";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login(prop) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -16,6 +16,10 @@ function Login() {
         password: password,
       });
       console.log(response);
+      if (response.status === 200) {
+        console.log(response.data.accessToken);
+        prop.setToken(response.data.accessToken);
+      }
     } catch (err) {
       console.error(err);
     }
