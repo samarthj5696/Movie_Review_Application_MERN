@@ -4,11 +4,29 @@ const Genre = require("../model/Genre.js");
 const Movie = require("../model/Movie.js");
 const User = require("../model/User.js");
 
-//get("/")
+//get("/get_movies")
 //Get all movies
 const movie_all = async (req, res) => {
   try {
-    const movies = await Movie.find();
+    const movies = await Movie.find()
+      .populate("Actor")
+      .populate("Director")
+      .populate("Genre");
+    console.log("get all movies");
+    res.json(movies);
+  } catch (error) {
+    res.json({ message: error });
+  }
+};
+
+//get("/get_all_movies")
+//Get all movies
+const get_all_movies = async (req, res) => {
+  try {
+    const movies = await Movie.find()
+      .populate("Actor")
+      .populate("Director")
+      .populate("Genre");
     console.log("get all movies");
     res.json(movies);
   } catch (error) {
@@ -108,4 +126,5 @@ module.exports = {
   get_actor,
   get_genre,
   get_director,
+  get_all_movies,
 };

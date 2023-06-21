@@ -143,7 +143,7 @@ function Register(prop) {
           Movie_name:
           <input
             type="text"
-            value={Array.isArray(movie_name) ? movie_name : []}
+            value={movie_name}
             onChange={(e) => setMovie(e.target.value)}
           />
         </label>

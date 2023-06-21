@@ -19,10 +19,10 @@ const validateToken = async (req, res, next) => {
       }
     });
 
-    if (!token) {
-      console.log("User is not authorized or token is missing");
-      res.status(400).send("User is not authorized or token is missing");
-    }
+    // if (!token) {
+    //   console.log("User is not authorized or token is missing");
+    //   res.status(400).send("User is not authorized or token is missing");
+    // }
   }
 };
 

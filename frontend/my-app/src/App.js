@@ -2,7 +2,8 @@ import "./App.css";
 import AxiosConfig from "./axios/AxiosConfig.js";
 import React, { useState } from "react";
 // import { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+// import { BrowserRouter as Switch } from "react-router-dom";
 import Header from "./components/Header/Header.js";
 import Login from "./components/Login/Login.js";
 import Register from "./components/Registeration/Register";
@@ -12,6 +13,7 @@ import Add_Movie from "./components/API/add/Add_Movie.js";
 import Add_Director from "./components/API/add/Add_Director.js";
 import Add_Actor from "./components/API/add/Add_Actor.js";
 import Add_Genre from "./components/API/add/Add_Genre.js";
+import Details_movie from "./components/Movie_Details/Details.js";
 function App() {
   const [Token, setToken] = useState("");
   return (
@@ -29,6 +31,12 @@ function App() {
               element={<Add_Director Token={Token} />}
             />
             <Route path="Add_Actor" element={<Add_Actor Token={Token} />} />
+            {/* <Switch> */}
+            <Route
+              path="Home/:param"
+              element={<Details_movie Token={Token} />}
+            />
+            {/* </Switch> */}
             <Route path="Add_Genre" element={<Add_Genre Token={Token} />} />
           </Route>
         </Routes>

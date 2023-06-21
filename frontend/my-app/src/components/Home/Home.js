@@ -22,30 +22,52 @@ function Home(prop) {
     fun();
   }, []);
 
+  const ColoredLine = ({ color }) => (
+    <hr
+      style={{
+        color: color,
+        backgroundColor: color,
+        height: 3,
+      }}
+    />
+  );
+
   return (
     <div>
       <div>
         <Link to="/Add_Movie">Add_Movie</Link>
       </div>
       <h1>Home</h1>
+      <ColoredLine color="black" />
       <div>
         {getMovies?.data?.map((object) => (
           <div>
             <h2>Movie :</h2>
-            <div>{object.Movie_Name}:</div>
-            <div>{object._id}</div>
+            <Link to={`${object._id}`}>{object.Movie_Name}:</Link>
+            {/* <div>{object.Movie_Name}:</div> */}
             <div>
               <h4>Cast:</h4>
               {object.Actor?.map((role) => (
-                <div>{role}</div>
+                <div>
+                  {role.First_Name} {role.Last_Name}
+                </div>
               ))}
             </div>
             <div>
               <h4>Director</h4>
               {object.Director?.map((director) => (
-                <div>{director}</div>
+                <div>
+                  {director.First_Name} {director.Last_Name}
+                </div>
               ))}
             </div>
+            <div>
+              <h4>Genre:</h4>
+              {object.Genre?.map((genre) => (
+                <div>{genre.Type} </div>
+              ))}
+            </div>
+            <ColoredLine color="black" />
           </div>
         ))}
       </div>
