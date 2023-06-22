@@ -27,6 +27,9 @@ function Add_Genre(prop) {
       <div>
         <Link to="/Add_Movie">Back</Link>
       </div>
+      <br />
+      <br />
+
       <form onSubmit={handleSubmit}>
         <label>
           Genre:
@@ -36,6 +39,8 @@ function Add_Genre(prop) {
             onChange={(e) => setGenre(e.target.value)}
           />
         </label>
+        <br />
+        <br />
 
         <input type="submit" />
       </form>

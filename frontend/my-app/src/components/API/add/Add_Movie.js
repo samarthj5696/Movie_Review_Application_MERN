@@ -147,6 +147,9 @@ function Register(prop) {
             onChange={(e) => setMovie(e.target.value)}
           />
         </label>
+        <br />
+        <br />
+
         <label>
           IMDB_ID:
           <input
@@ -155,6 +158,7 @@ function Register(prop) {
             onChange={(e) => setIMDB_ID(e.target.value)}
           />
         </label>
+
         <div>
           <br></br>
           Actor:

@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import api from "../../axios/AxiosConfig.js";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home(prop) {
+  const navigate = useNavigate();
   const [getMovies, setMovies] = useState("");
   async function fun() {
-    console.log("Home");
-    console.log(prop.Token);
     try {
+      if (!prop.Token) {
+        navigate("/Login");
+      }
       const response = await api.get("/api/movies/get_movies", {
         headers: { Authorization: `Bearer ${prop.Token}` },
       });
@@ -42,9 +45,10 @@ function Home(prop) {
       <div>
         {getMovies?.data?.map((object) => (
           <div>
-            <h2>Movie :</h2>
-            <Link to={`${object._id}`}>{object.Movie_Name}:</Link>
-            {/* <div>{object.Movie_Name}:</div> */}
+            <h2>
+              Movie : <Link to={`${object._id}`}>{object.Movie_Name}:</Link>
+            </h2>
+
             <div>
               <h4>Cast:</h4>
               {object.Actor?.map((role) => (
@@ -54,7 +58,7 @@ function Home(prop) {
               ))}
             </div>
             <div>
-              <h4>Director</h4>
+              <h4>Director:</h4>
               {object.Director?.map((director) => (
                 <div>
                   {director.First_Name} {director.Last_Name}

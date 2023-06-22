@@ -29,6 +29,9 @@ function Add_Director(prop) {
       <div>
         <Link to="/Add_Movie">Back</Link>
       </div>
+      <br />
+      <br />
+
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
@@ -38,6 +41,9 @@ function Add_Director(prop) {
             onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
+        <br />
+        <br />
+
         <label>
           Last Name:
           <input
@@ -46,6 +52,9 @@ function Add_Director(prop) {
             onChange={(e) => setLastName(e.target.value)}
           />
         </label>
+        <br />
+        <br />
+
         <input type="submit" />
       </form>
     </div>

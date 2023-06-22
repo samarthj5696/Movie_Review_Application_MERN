@@ -1,16 +1,28 @@
 import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-const Header = () => {
+import logout from "../Login/Logout.js";
+import { useEffect, useState } from "react";
+const Header = (prop) => {
+  const [login, setLogin] = useState("Login");
+  const [home, setHome] = useState("Home");
+  useEffect(() => {
+    if (prop.Token) {
+      setLogin("Logout");
+      setHome("Home");
+    } else {
+      setLogin("Login");
+      setHome("Login");
+    }
+  }, [prop.Token]);
   return (
     <Navbar>
       <br></br>
       <nav>
         <div>
-          <Link to="/Home">Home</Link>
+          <Link to={`/${home}`}>Home</Link>
         </div>
         <div>
-          <Link to="/Login">Login</Link>
+          <Link to={`/${login}`}>{login}</Link>
         </div>
       </nav>
       <br></br>
