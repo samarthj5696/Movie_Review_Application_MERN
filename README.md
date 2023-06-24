@@ -8,5 +8,11 @@ The database used in the application is MongoDB, a NoSQL database that provides 
 
 The "Movie Review" project is a great example of a full-stack web application that utilizes modern technologies to provide a seamless user experience. The project is open-source and available on GitHub, making it easy for developers to contribute to the project and extend its functionality.
 
-<img width="1000" alt="5" src="https://github.com/samarthj5696/Movie_Review_Application_MERN/blob/master/Movie%20Review%20Application%401.25x.png">
-<img width="1000" alt="5" src="https://github.com/samarthj5696/Movie_Review_Application_MERN/blob/master/Movie%20review%20app%20(1).png">
+Screenshots of final product:
+<img width="1000" alt="5" src="https://github.com/samarthj5696/Movie_Review_Application_MERN/blob/master/Movie%20Review%20App%20Screenshots.png">
+
+Figma Design
+<img width="1000" alt="5" src="https://github.com/samarthj5696/Movie_Review_Application_MERN/blob/master/Figma%20Design.png">
+
+Database Design Methodology and ER Diagram
+<img width="1000" alt="5" src="https://github.com/samarthj5696/Movie_Review_Application_MERN/blob/master/DB%20Design%20-%20ER%20Diagram.png">
