@@ -47,7 +47,7 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     console.log("All fields are mandatory!");
-    res.status(400).send("All fields are mandatory!");
+    res.status(200).json({ res: "invalid" });
   } else {
     const user = await User.findOne({ email });
     //compare password with hashedpassword
@@ -66,7 +66,7 @@ const loginUser = async (req, res) => {
       res.json({ accessToken });
     } else {
       console.log("email or password is not valid");
-      res.status(400).send("email or password is not valid");
+      res.status(200).json({ res: "invalid" });
     }
   }
 };

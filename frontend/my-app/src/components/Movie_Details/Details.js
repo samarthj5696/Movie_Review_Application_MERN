@@ -12,6 +12,7 @@ function Details(prop) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("submitted");
+    setComments("");
     try {
       console.log(movie_id, decodedToken.user.id, comments);
       const response = await api.post("/api/movies/add_comment", {

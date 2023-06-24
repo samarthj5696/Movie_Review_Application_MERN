@@ -51,6 +51,7 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
+        <br />
         <input type="submit" className="button1" />
       </form>
     </div>

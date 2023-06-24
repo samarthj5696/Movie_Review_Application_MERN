@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import api from "../../axios/AxiosConfig.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ function Login(prop) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const navigate = useNavigate();
+  const [Status, setStatus] = useState("Welcome");
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(`email:${email}, password:${password}`);
@@ -15,10 +16,13 @@ function Login(prop) {
         password: password,
       });
       console.log(response);
-      if (response.status === 200) {
+      if (response.data.res !== "invalid") {
         console.log(response.data.accessToken);
         prop.setToken(response.data.accessToken);
         navigate("/Home");
+      }
+      if (response.data.res === "invalid") {
+        setStatus("Invalid Username or Password");
       }
     } catch (err) {
       console.error(err);
@@ -27,6 +31,8 @@ function Login(prop) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <div>{Status}</div>
+        <br />
         <label>
           email:
           <input
