@@ -26,32 +26,35 @@ function Register() {
     }
   };
   return (
-    <div>
+    <div style={{ marginBottom: "20px", paddingTop: "80px" }}>
+      <div style={{ fontWeight: "bold", fontSize: "25px" }}>Registeration</div>
       <form onSubmit={handleSubmit}>
-        <div>Username: </div>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br />
+        <div style={{ marginBottom: "10px", marginTop: "25px" }}>
+          <div style={{ display: "inline" }}>Username: </div>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
 
-        <div>Email: </div>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
+        <div style={{ marginBottom: "10px" }}>
+          <div style={{ display: "inline" }}>Email: </div>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-        <div>Password: </div>
-        <input
-          type="text"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <br />
+        <div style={{ marginBottom: "30px" }}>
+          <div style={{ display: "inline" }}>Password: </div>
+          <input
+            type="text"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
         <input type="submit" className="button1" />
       </form>
     </div>

@@ -25,9 +25,17 @@ function Add_Director(prop) {
   };
 
   return (
-    <div>
+    <div style={{ marginBottom: "20px", marginTop: "80px" }}>
       <div>
-        <Link to="/Add_Movie">Back</Link>
+        <Link
+          to="/Add_Movie"
+          style={{
+            color: "grey",
+            textDecoration: "none",
+          }}
+        >
+          Back
+        </Link>
       </div>
       <br />
       <br />

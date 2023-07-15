@@ -40,12 +40,35 @@ function Details(prop) {
     movie_data();
   }, [handleSubmit]);
   return (
-    <div>
-      <h3>Movie_Name: {Moviedata?.data?.Movie_Name}</h3>
-      <div>
+    <div
+      style={{
+        marginBottom: "20px",
+        marginTop: "48px",
+        backgroundColor: "#36486b",
+        color: "white",
+        height: "800px",
+      }}
+    >
+      <div style={{ marginBottom: "10px", paddingTop: "60px" }}>
+        <h2>Movie Name: {Moviedata?.data?.Movie_Name}</h2>
+      </div>
+      <div style={{ color: "white" }}>
         {Moviedata?.data?.Comments?.map((d) => (
-          <div>
-            {d?.userId?.username} : {d.comment}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              border: "1px solid #618685",
+              marginLeft: "300px",
+              marginRight: "300px",
+              marginTop: "5px",
+              marginBottom: "5px",
+            }}
+          >
+            <div style={{ fontWeight: "bold", marginRight: "5px" }}>
+              {d?.userId?.username}:
+            </div>
+            <div>{d.comment}</div>
           </div>
         ))}
       </div>

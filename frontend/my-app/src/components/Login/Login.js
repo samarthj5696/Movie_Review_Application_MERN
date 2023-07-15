@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import api from "../../axios/AxiosConfig.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function Login(prop) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -29,12 +32,15 @@ function Login(prop) {
     }
   };
   return (
-    <div>
+    <div style={{ marginBottom: "20px", marginTop: "80px" }}>
       <form onSubmit={handleSubmit}>
-        <div>{Status}</div>
-        <br />
+        <div
+          style={{ fontWeight: "bold", fontSize: "25px", marginBottom: "20px" }}
+        >
+          {Status}
+        </div>
         <label>
-          email:
+          <div style={{ display: "inline", marginRight: "5px" }}>Email:</div>
           <input
             type="text"
             value={email}
@@ -44,7 +50,7 @@ function Login(prop) {
         <br />
         <br />
         <label>
-          password:
+          <div style={{ display: "inline", marginRight: "5px" }}>Password:</div>
           <input
             type="text"
             value={password}
@@ -55,11 +61,11 @@ function Login(prop) {
         <br />
         <input type="submit" />
       </form>
-      <br />
-      <br />
-
-      <div>
-        Register as new user :<Link to="/Register">Register</Link>
+      <div style={{ marginTop: "20px" }}>
+        Register as new user :
+        <Link to="/Register" style={{ color: "grey" }}>
+          Register
+        </Link>
       </div>
     </div>
   );

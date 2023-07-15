@@ -127,40 +127,80 @@ function Register(prop) {
     setSelectedOptionsGenre(data);
   }
   return (
-    <div>
-      <div>
-        <Link to="/Add_Actor">Add_Actor</Link>
+    <div style={{ marginBottom: "20px", marginTop: "80px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ marginLeft: "20px", marginRight: "20px" }}>
+          <Link
+            to="/Add_Actor"
+            style={{
+              color: "grey",
+              textDecoration: "none",
+            }}
+          >
+            Add_Actor
+          </Link>
+        </div>
+        <div style={{ marginLeft: "20px", marginRight: "20px" }}>
+          <Link
+            to="/Add_Director"
+            style={{
+              color: "grey",
+              textDecoration: "none",
+            }}
+          >
+            Add_Director
+          </Link>
+        </div>
+        <div style={{ marginLeft: "20px", marginRight: "20px" }}>
+          <Link
+            to="/Add_Genre"
+            style={{
+              color: "grey",
+              textDecoration: "none",
+            }}
+          >
+            Add_Genre
+          </Link>
+        </div>
       </div>
-      <div>
-        <Link to="/Add_Director">Add_Director</Link>
-      </div>
-      <div>
-        <Link to="/Add_Genre">Add_Genre</Link>
-      </div>
-      <br></br>
+
       <form onSubmit={handleSubmit}>
-        <label>
-          Movie_name:
-          <input
-            type="text"
-            value={movie_name}
-            onChange={(e) => setMovie(e.target.value)}
-          />
-        </label>
-        <br />
-        <br />
+        <div style={{ marginBottom: "20px", marginTop: "10px" }}>
+          <div style={{ marginBottom: "10px" }}>
+            <p style={{ display: "inline", marginRight: "10px" }}>
+              Movie_name:
+            </p>
+            <input
+              type="text"
+              value={movie_name}
+              onChange={(e) => setMovie(e.target.value)}
+            />
+          </div>
 
-        <label>
-          IMDB_ID:
-          <input
-            type="text"
-            value={IMDB_ID}
-            onChange={(e) => setIMDB_ID(e.target.value)}
-          />
-        </label>
+          <div>
+            <p style={{ display: "inline", marginRight: "10px" }}>IMDB_ID:</p>
+            <input
+              type="text"
+              value={IMDB_ID}
+              onChange={(e) => setIMDB_ID(e.target.value)}
+            />
+          </div>
+        </div>
 
-        <div>
-          <br></br>
+        <div
+          style={{
+            width: "350px",
+            justifyContent: "center",
+            margin: "auto",
+            marginBottom: "5px",
+          }}
+        >
           Actor:
           <Select
             options={Array.isArray(actor) ? actor : []}
@@ -169,10 +209,18 @@ function Register(prop) {
             onChange={handleSelectActor}
             isSearchable={true}
             isMulti
+            // styles={{ display: "inline" }}
           />
         </div>
         <br></br>
-        <div>
+        <div
+          style={{
+            width: "350px",
+            justifyContent: "center",
+            margin: "auto",
+            marginBottom: "5px",
+          }}
+        >
           Director:
           <Select
             options={Array.isArray(director) ? director : []}
@@ -184,7 +232,14 @@ function Register(prop) {
           />
         </div>
         <br></br>
-        <div>
+        <div
+          style={{
+            width: "350px",
+            justifyContent: "center",
+            margin: "auto",
+            marginBottom: "5px",
+          }}
+        >
           Genre:
           <Select
             options={Array.isArray(genre) ? genre : []}

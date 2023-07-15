@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import home from "../Home/home.css";
 
 function Home(prop) {
   const navigate = useNavigate();
@@ -39,20 +40,28 @@ function Home(prop) {
   );
 
   return (
-    <div>
+    <div style={{ marginBottom: "20px", marginTop: "80px" }}>
       <div>
-        <Link to="/Add_Movie">Add_Movie</Link>
+        <Link
+          to="/Add_Movie"
+          style={{
+            color: "grey",
+            textDecoration: "none",
+          }}
+        >
+          Add_Movie
+        </Link>
       </div>
-      <h1>Home</h1>
-      <Form>
-        <InputGroup>
-          <Form.Control
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search movies"
-          />
-        </InputGroup>
-      </Form>
-      <ColoredLine color="black" />
+      <div style={{ marginLeft: "250px", marginRight: "250px" }}>
+        <Form style={{ marginTop: "10px" }}>
+          <InputGroup>
+            <Form.Control
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search movies"
+            />
+          </InputGroup>
+        </Form>
+      </div>
 
       <div>
         {getMovies?.data
@@ -62,9 +71,29 @@ function Home(prop) {
               : item.Movie_Name.toLowerCase().includes(search);
           })
           .map((object) => (
-            <div>
+            <div
+              style={{
+                textAlign: "center",
+                maxWidth: "950px",
+                margin: "0 auto",
+                border: "1px solid #e6e6e6",
+                padding: "40px 25px",
+                marginTop: "50px",
+                backgroundColor: "#36486b",
+                color: "white",
+              }}
+            >
               <h2>
-                Movie : <Link to={`${object._id}`}>{object.Movie_Name}:</Link>
+                Movie :{" "}
+                <Link
+                  to={`${object._id}`}
+                  style={{
+                    color: "#618685",
+                    textDecoration: "none",
+                  }}
+                >
+                  {object.Movie_Name}:
+                </Link>
               </h2>
 
               <div>
@@ -89,7 +118,6 @@ function Home(prop) {
                   <div>{genre.Type} </div>
                 ))}
               </div>
-              <ColoredLine color="black" />
             </div>
           ))}
       </div>
