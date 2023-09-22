@@ -1,0 +1,15 @@
+.MainContainer {
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.label {
+  display: inline;
+  margin-right: 5px;
+}

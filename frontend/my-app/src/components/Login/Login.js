@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import api from "../../axios/AxiosConfig.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./login.css";
 
 function Login(prop) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const navigate = useNavigate();
   const [Status, setStatus] = useState("Welcome");
+
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(`email:${email}, password:${password}`);
@@ -23,24 +25,20 @@ function Login(prop) {
         console.log(response.data.accessToken);
         prop.setToken(response.data.accessToken);
         navigate("/Home");
-      }
-      if (response.data.res === "invalid") {
+      } else if (response.data.res === "invalid") {
         setStatus("Invalid Username or Password");
       }
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
-    <div style={{ marginBottom: "20px", marginTop: "80px" }}>
+    <div className="MainContainer">
       <form onSubmit={handleSubmit}>
-        <div
-          style={{ fontWeight: "bold", fontSize: "25px", marginBottom: "20px" }}
-        >
-          {Status}
-        </div>
+        <div className="status">{Status}</div>
         <label>
-          <div style={{ display: "inline", marginRight: "5px" }}>Email:</div>
+          <div className="label">Email:</div>
           <input
             type="text"
             value={email}
@@ -50,7 +48,7 @@ function Login(prop) {
         <br />
         <br />
         <label>
-          <div style={{ display: "inline", marginRight: "5px" }}>Password:</div>
+          <div className="label">Password:</div>
           <input
             type="text"
             value={password}

@@ -4,22 +4,24 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import home from "../Home/home.css";
+import "./home.css";
 
 function Home(prop) {
   const navigate = useNavigate();
   const [getMovies, setMovies] = useState("");
   const [search, setSearch] = useState("");
+
   async function fun() {
     try {
       if (!prop.Token) {
         navigate("/Login");
+      } else {
+        const response = await api.get("/api/movies/get_movies", {
+          headers: { Authorization: `Bearer ${prop.Token}` },
+        });
+        setMovies(response);
+        console.log(getMovies);
       }
-      const response = await api.get("/api/movies/get_movies", {
-        headers: { Authorization: `Bearer ${prop.Token}` },
-      });
-      setMovies(response);
-      console.log(getMovies);
     } catch (err) {
       console.error(err);
     }
@@ -29,30 +31,13 @@ function Home(prop) {
     fun();
   }, []);
 
-  const ColoredLine = ({ color }) => (
-    <hr
-      style={{
-        color: color,
-        backgroundColor: color,
-        height: 3,
-      }}
-    />
-  );
-
   return (
-    <div style={{ marginBottom: "20px", marginTop: "80px" }}>
-      <div>
-        <Link
-          to="/Add_Movie"
-          style={{
-            color: "grey",
-            textDecoration: "none",
-          }}
-        >
-          Add_Movie
-        </Link>
-      </div>
-      <div style={{ marginLeft: "250px", marginRight: "250px" }}>
+    <div className="MainContainer">
+      <Link to="/Add_Movie" className="AddMovie">
+        Add_Movie
+      </Link>
+
+      <div className="SearchBar">
         <Form style={{ marginTop: "10px" }}>
           <InputGroup>
             <Form.Control
@@ -71,27 +56,10 @@ function Home(prop) {
               : item.Movie_Name.toLowerCase().includes(search);
           })
           .map((object) => (
-            <div
-              style={{
-                textAlign: "center",
-                maxWidth: "950px",
-                margin: "0 auto",
-                border: "1px solid #e6e6e6",
-                padding: "40px 25px",
-                marginTop: "50px",
-                backgroundColor: "#36486b",
-                color: "white",
-              }}
-            >
+            <div className="Card">
               <h2>
                 Movie :{" "}
-                <Link
-                  to={`${object._id}`}
-                  style={{
-                    color: "#618685",
-                    textDecoration: "none",
-                  }}
-                >
+                <Link to={`${object._id}`} className="Links">
                   {object.Movie_Name}:
                 </Link>
               </h2>

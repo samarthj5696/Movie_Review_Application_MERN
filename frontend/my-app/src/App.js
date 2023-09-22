@@ -28,18 +28,16 @@ function App() {
             <Route path="Logout" element={<Logout setToken={setToken} />} />
             <Route path="Register" element={<Register />} />
             <Route path="Home" element={<Home Token={Token} />} />
+            <Route
+              path="Home/:param"
+              element={<Details_movie Token={Token} />}
+            />
             <Route path="Add_Movie" element={<Add_Movie Token={Token} />} />
             <Route
               path="Add_Director"
               element={<Add_Director Token={Token} />}
             />
             <Route path="Add_Actor" element={<Add_Actor Token={Token} />} />
-            {/* <Switch> */}
-            <Route
-              path="Home/:param"
-              element={<Details_movie Token={Token} />}
-            />
-            {/* </Switch> */}
             <Route path="Add_Genre" element={<Add_Genre Token={Token} />} />
           </Route>
         </Routes>

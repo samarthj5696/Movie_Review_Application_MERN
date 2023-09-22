@@ -1,13 +1,14 @@
 import React from "react";
-import axios from "axios";
 import api from "../../axios/AxiosConfig.js";
 import "./register.css";
 import { useNavigate } from "react-router";
+
 function Register() {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(`username:${username}, email:${email}, password:${password}`);
@@ -25,9 +26,10 @@ function Register() {
       console.error(err);
     }
   };
+
   return (
-    <div style={{ marginBottom: "20px", paddingTop: "80px" }}>
-      <div style={{ fontWeight: "bold", fontSize: "25px" }}>Registeration</div>
+    <div className="MainContainer">
+      <div className="heading">Registeration</div>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "10px", marginTop: "25px" }}>
           <div style={{ display: "inline" }}>Username: </div>

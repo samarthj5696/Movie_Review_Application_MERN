@@ -1,13 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
-
-// export default axios.create({
-//   baseURL: "http://localhost:7000",
-//   headers: { "ngrok-skip-browser-warning": "True" ,"Authorization":"" },
-// });
+import URL from "../utils/URL.js";
 
 const instance = axios.create({
-  baseURL: "http://localhost:7000",
+  baseURL: URL,
   headers: { "ngrok-skip-browser-warning": "True" },
 });
 

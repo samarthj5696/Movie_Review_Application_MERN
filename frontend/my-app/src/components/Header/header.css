@@ -1,0 +1,12 @@
+.navBar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.textStyle {
+  color: grey;
+  text-decoration: none;
+  margin-right: 10px;
+}
